@@ -1,3 +1,8 @@
-.search-form {
-	padding: 10%;
+.container {
+	padding: 5%;
 }
+
+.search-btn {
+	margin-top: 3px;
+}
+
