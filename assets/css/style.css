@@ -1,17 +1,14 @@
-<<<<<<< HEAD
 .search-form {
-	padding: 10%;
+	padding: 5px 0 0 0;
+	vertical-align: top;
 }
-.search-form{
-	padding-top: 3px;
-}
-=======
 .container {
 	padding: 5%;
 }
-
 .search-btn {
 	margin-top: 3px;
 }
-
->>>>>>> c7898326e44f97e892b6f29138d426d06c3ac39c
+.title {
+	text-align: center;
+	font-weight: bold;
+}

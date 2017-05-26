@@ -1,49 +1,76 @@
+<!-- TO DO: -->
+<!-- 1. link search bar to back end -->
+<!-- 2. link search button to back end -->
+<!-- 3. create a row & column for gif to appear -->
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Movie Search</title>
+	<!-- Bootstrap -->
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+	
+	<!-- CSS link -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
 </head>
+
 <body>
-<div class="container">
-	<!-- Search bar -->
-	<div class="row">
-		<!--centers the search bar -->
-        <div class="col-md-8 col-md-offset-2
-                    col-sm-8 col-sm-offset-2
-                    col-xs-5 col-xs-offset-3">
-        	<!-- <Form> is used to grab user input -->
-        	<!-- action="" is going to point at AJAX call -->
-            <form action="" class="search-form"> 
-				
-                <div class="form-group has-feedback">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="what movie do you want to see ...">
-              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-            	</div>
-            </form>
-        </div>
-        
-        <div class="col-md-2">
-            <button class="search-btn">Search</button>
-        </div>
-
-    </div>
-        
-</div>
+	<div class="container">
+		<!-- SITE TITLE -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1
+						col-sm-10 col-sm-offset-1
+						col-xm-5 col-xs-offeset-3">
+				<h1 class="title" >Wine Movie Search</h1>
+			</div>
+		</div>
+		<!-- END OF TITLE -->
 
 
+		<!-- SEARCH BAR -->
+		<div class="row">
+			<!--centers the search bar -->
+			<div class="col-md-8 col-md-offset-2
+                  col-sm-8 col-sm-offset-2
+                  col-xs-5 col-xs-offset-3">
+				<!-- <Form> is used to grab user input -->
+				<!-- action="" is going to point at AJAX call -->
+				<form action="" class="search-form">
+					<div class="form-group has-feedback">
+						<label for="search" class="sr-only">Search</label>
+						<input type="text" class="form-control" name="search" id="search" placeholder="what movie do you want to see ...">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</div>
+				</form>
+			</div>
+			
+			<!-- SEARCH BUTTON -->
+			<div class="col-md-2 col-md-offeset-10">
+				<form class="search-form">
+					<button class="search-btn">Search</button>
+				</form>
+			</div>
+
+		</div>
+		<!-- END OF SEARCH BAR -->
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.js"
-	integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
-  	crossorigin="anonymous"></script>
-<script scr="assets/javascript/logic.js"></script>
+
+	</div>
+	<!-- END OF CONTAINER -->
+
+
+
+	<!-- JQuery CDN -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
+	<!-- Javascript link -->
+	<script scr="assets/javascript/logic.js"></script>
 </body>
+
 </html>
