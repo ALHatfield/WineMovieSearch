@@ -1,76 +1,41 @@
-<!-- TO DO: -->
-<!-- 1. link search bar to back end -->
-<!-- 2. link search button to back end -->
-<!-- 3. create a row & column for gif to appear -->
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>Movie Search</title>
-	<!-- Bootstrap -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
-	<!-- CSS link -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enjoy wine with movie!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<!-- SITE TITLE -->
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1
-						col-sm-10 col-sm-offset-1
-						col-xm-5 col-xs-offeset-3">
-				<h1 class="title" >Wine Movie Search</h1>
-			</div>
-		</div>
-		<!-- END OF TITLE -->
+    <div class="container text-center">
+        <header>
+            <div class="jumbotron">
+                <h1> Welcome to movie with wine</h1>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search movie to enjoy with wine">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" id="Search">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="row" id="wineGiphy">
+               
+            </div>
+        </section>
+    </div>
 
-
-		<!-- SEARCH BAR -->
-		<div class="row">
-			<!--centers the search bar -->
-			<div class="col-md-8 col-md-offset-2
-                  col-sm-8 col-sm-offset-2
-                  col-xs-5 col-xs-offset-3">
-				<!-- <Form> is used to grab user input -->
-				<!-- action="" is going to point at AJAX call -->
-				<form action="" class="search-form">
-					<div class="form-group has-feedback">
-						<label for="search" class="sr-only">Search</label>
-						<input type="text" class="form-control" name="search" id="search" placeholder="what movie do you want to see ...">
-						<span class="glyphicon glyphicon-search form-control-feedback"></span>
-					</div>
-				</form>
-			</div>
-			
-			<!-- SEARCH BUTTON -->
-			<div class="col-md-2 col-md-offeset-10">
-				<form class="search-form">
-					<button class="search-btn">Search</button>
-				</form>
-			</div>
-
-		</div>
-		<!-- END OF SEARCH BAR -->
-
-
-
-	</div>
-	<!-- END OF CONTAINER -->
-
-
-
-	<!-- JQuery CDN -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
-	<!-- Javascript link -->
-	<script scr="assets/javascript/logic.js"></script>
+    <script type="text/javascript" src="assets/javascript/winesearch.js"></script>
 </body>
 
 </html>
