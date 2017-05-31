@@ -1,8 +1,9 @@
 $(document).ready(function function_name(argument) {
     // body...
-    var seachfor = "wine";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        seachfor + "&api_key=dc6zaTOxFJmzC&limit=10";
+    // var seachfor = "wine";
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=wine";
+    // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        // seachfor + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 	var displaygif ="";
     $.ajax({
@@ -16,7 +17,7 @@ $(document).ready(function function_name(argument) {
             console.log(response);
             // storing the data from the AJAX request in the results variable
             var results = response.data;
-            var displaygif = " <div id='showGiphy'>" + "<img src='" + results[0].images.fixed_height.url + "'>" + "</div>"
+            var displaygif = "<div id='showGiphy'>" + "<img src=" + results.image_url + ">" + "</div>"
         
             $("#wineGiphy").append(displaygif);
             toggleWineGiphy(false);   
@@ -24,11 +25,19 @@ $(document).ready(function function_name(argument) {
 
      
 
-    $("#Search").on("click", function() {
-        // Performing an AJAX request with the queryURL
-        toggleWineGiphy(true);
+    // $("#Search").on("click", function() {
+    //     // Performing an AJAX request with the queryURL
+    //     toggleWineGiphy(true);
 
-    });
+    // });
+            $("#Search").on("click", function() {
+                // Performing an AJAX request with the queryURL
+                toggleWineGiphy(true);
+                // fade out the gif
+                setTimeout(function() {
+                    $('#wineGiphy').fadeOut('slow');
+                }, 3000);
+            });
 
     function toggleWineGiphy(isDisplay)
     {
