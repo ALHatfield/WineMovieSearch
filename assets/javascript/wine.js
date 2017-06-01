@@ -3,15 +3,22 @@
             "funny joke number 2", // 1
             "funny joke number 3", // 2
         ]
+
+    var timer = null;
     function newJoke() {
         var randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
         console.log(randomJoke);
         $("#wineGiphy").append("<h3>" + randomJoke + "</h3>");
     }
             $("#Search").on("click", function() {
+                
+            //Resets the previous timer
+                if (timer) {
+                    clearTimeout(timer); 
+                    timer = null;
+                }
+
                 var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=wine";
-                // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-                    // seachfor + "&api_key=dc6zaTOxFJmzC&limit=10";
 
                 $.ajax({
                         url: queryURL,
@@ -27,12 +34,17 @@
                         var displaygif = "<img src=" + results.image_url + ">"
                     
                         $("#wineGiphy").html(displaygif);
+                        
+
+                        $('#wineGiphy').fadeIn('fast');
 
                         newJoke();
                     })
                 // fade out the gif
-                //Need to reset or clear timer when button is pressed again
-                setTimeout(function() {
+                timer = setTimeout(function() {
                     $('#wineGiphy').fadeOut('slow');
                 }, 3000);
+                
+               timer; 
+
             });
