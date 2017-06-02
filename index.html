@@ -10,32 +10,37 @@
     <!-- jQuery library -->
     <!-- Latest compiled JavaScript -->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="container text-center">
-        <header>
-            <div class="jumbotron">
-                <h1> Welcome to movie with wine</h1>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search movie to enjoy with wine">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit" id="Search">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
+    <div id="background">
+        <img src="assets/images/WineAndCork2.png" height="50%" width="100%">
+    </div>
+        <div class="container text-center">
+            <header>
+                <div class="searchBar">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" id="Search">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </header>
-        <section>
-            <div class="row" id="wineGiphy">
-            <div id="omdb"></div>   
-            </div>
-        </section>
-    </div>
+            </header>
+            <section>
+                <div class="row" id="wineGiphy">
+                   
+                </div>
+            </section>
+        </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/wine.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/wine.js"></script>
+    
 </body>
 
 </html>
