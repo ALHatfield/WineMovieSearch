@@ -88,5 +88,4 @@ function searchMovie() {
 
     });
     return;
-
 }

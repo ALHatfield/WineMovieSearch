@@ -1,61 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>Movie Search</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enjoy wine with movie!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <!-- Latest compiled JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-<div class="container">
-	<!-- Search bar -->
-    <h1>test</h1>
-    <h2>jhg</h2>
-    <h3>chs</h3>
-
-	<div class="row">
-        <!-- Some comment -->
-		<!--centers the search bar -->
-        <div class="col-md-4 col-md-offset-4">
-
-        <div class="col-md-8 col-md-offset-2
-                    col-sm-8 col-sm-offset-2
-                    col-xs-5 col-xs-offset-3">
-
-        	<!-- <Form> is used to grab user input -->
-        	<!-- action="" is going to point at AJAX call -->
-            <form action="" class="search-form"> 
-				
-                <div class="form-group has-feedback">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="what movie do you want to see ...">
-              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-            	</div>
-            </form>
-
-        </div>
-        <div class="col-md-2">
-            <button class="search-btn">search</button>
-        </div>
-        
-        <div class="col-md-2">
-            <button class="search-btn">Search</button>
-        </div>
-
+    <div id="background">
+        <img src="assets/images/WineAndCork2.png" height="50%" width="100%">
     </div>
-        
-</div>
+        <div class="container text-center">
+            <header>
+                <div class="searchBar">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" id="Search">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section>
+                <div class="row" id="wineGiphy">
+                   
+                </div>
+            </section>
+        </div>
 
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.js"
-	integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
-  	crossorigin="anonymous"></script>
-<script scr="assets/javascript/logic.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/wine.js"></script>
+    
 </body>
+
 </html>
