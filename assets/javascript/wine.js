@@ -36,7 +36,7 @@
                         console.log(response);
                         // storing the data from the AJAX request in the results variable
                         var results = response.data;
-                        var displaygif = "<img src=" + results.image_url + ">"
+                        var displaygif = "<img src=" + results.images.fixed_height.url + ">"
                     
                         $("#wineGiphy").html(displaygif);
                         
