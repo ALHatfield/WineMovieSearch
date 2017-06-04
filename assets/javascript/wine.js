@@ -17,6 +17,7 @@
         $("#wineGiphy").append("<h3>" + randomJoke + "</h3>");
     }
 
+
     function gifAJAX() {
         
                console.log($(".form-control").val()); 
@@ -73,7 +74,7 @@
 
             var poster_src = response.Poster
             $("#movieInfo").html("<img src=" + response.Poster + " >");
-            $("#moviePlot").text(JSON.stringify(response.Plot, null, 2));
+            $("#moviePlot").html(JSON.stringify(response.Plot, null, 2));
             $("#moviePlot").css("color", "darkblue");
             $("#moviePlot").one("click", function() {
                 var fontSize = $(this).css("font-size", "+=15");
@@ -82,10 +83,19 @@
         return;
 
     }
+
+    function emptyDiv() {
+
+            $("#movieInfo").empty();
+            $("#moviePlot").empty();
+    }
+
+
         $(".form-control").keypress(function(e) {
             if (e.which == 13) {
 
             $("#movieInfo").empty();
+            $("#moviePlot").empty();
 
             gifAJAX();
 
@@ -93,15 +103,23 @@
                     omdbAJAX();
             },4000);
 
-          var movie = $(".form-control").val();
-
-
             }
         });
 
         $("#Search").on("click", function() {
-        
+
+            $("#movieInfo").empty();
+            $("#moviePlot").empty();
+
             gifAJAX();
+
+            setTimeout(function() {
+                    omdbAJAX();
+            },4000);
+            
+            setTimeout(function() {
+                   $("#youtube").html("A placeholder video"); 
+            },4000);
 
         });
 
