@@ -84,18 +84,29 @@
 
     }
 
-    function emptyDiv() {
+    function youtubeData() {
+        var searchURL = "https://www.youtube.com/embed?listType=search&list=";
+        var movieSearch = $(".form-control").val() + "+trailer";
+        var targetURL = searchURL + movieSearch;
+        console.log(movieSearch);
+        console.log(targetURL);
+        $("#youtube").append("<iframe id='trailer' width='640' height='360'></iframe");
+        $("#trailer").attr("src", targetURL);
+        
+        return false;
+    }
 
+    function emptyDiv() {
             $("#movieInfo").empty();
             $("#moviePlot").empty();
+            $("#youtube").empty();
     }
 
 
         $(".form-control").keypress(function(e) {
             if (e.which == 13) {
 
-            $("#movieInfo").empty();
-            $("#moviePlot").empty();
+            emptyDiv();
 
             gifAJAX();
 
@@ -103,13 +114,16 @@
                     omdbAJAX();
             },4000);
 
+            setTimeout(function() {
+                    youtubeData();
+            },4000);
+
             }
         });
 
         $("#Search").on("click", function() {
 
-            $("#movieInfo").empty();
-            $("#moviePlot").empty();
+            emptyDiv();
 
             gifAJAX();
 
@@ -118,7 +132,7 @@
             },4000);
             
             setTimeout(function() {
-                   $("#youtube").html("A placeholder video"); 
+                    youtubeData();
             },4000);
 
         });
