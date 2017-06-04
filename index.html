@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -9,18 +8,17 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- jQuery library -->
-    <!-- Latest compiled JavaScript -->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 </head>
 
 <body>
+    <div id="background">
+        <img src="assets/images/WineAndCork2.png" height="50%" width="100%">
+    </div>
     <div class="container text-center">
         <header>
-            <div class="jumbotron">
-                <h1> Welcome to movie with wine</h1>
+            <div class="searchBar">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="movieName" placeholder="This is your time to enjoy ... you get to pick the movie">
+                    <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit" id="Search">
                             <i class="glyphicon glyphicon-search"></i>
@@ -28,17 +26,21 @@
                     </div>
                 </div>
             </div>
+            <!--The closing div tag below was removed because it interferes with the centering of the gif-->
+            <!--</div>-->
         </header>
         <section>
-            <div class="row" id="wineGiphy">
+            <div class="row">
+                <div id="wineGiphy"></div>
+                <div class="col-md-6" id="movieInfo"></div>
+                <div class="col-md-6" id="youtube">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="moviePlot"></div>
             </div>
         </section>
-
-        <section>
-            <div id="omdb"></div>
-        </section>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/wine.js"></script>
 </body>

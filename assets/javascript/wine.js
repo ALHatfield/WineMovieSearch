@@ -1,3 +1,6 @@
+//To do: Change gif to fixed height size.
+//Ensure that the omdb api works and puts content on page    
+
 var jokes = [
     "funny joke number 1", // 0
     "funny joke number 2", // 1
@@ -5,7 +8,8 @@ var jokes = [
 ]
 
 var timer = null;
-var movie = "";
+
+//functions to define
 
 function newJoke() {
     var randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
@@ -13,7 +17,10 @@ function newJoke() {
     $("#wineGiphy").append("<h3>" + randomJoke + "</h3>");
 }
 
-$("#Search").on("click", function() {
+
+function gifAJAX() {
+
+    console.log($(".form-control").val());
 
     //Resets the previous timer
     if (timer) {
@@ -38,55 +45,94 @@ $("#Search").on("click", function() {
 
             $("#wineGiphy").html(displaygif);
 
-
             $('#wineGiphy').fadeIn('fast');
 
             newJoke();
-
-            
         })
         // fade out the gif
     timer = setTimeout(function() {
         $('#wineGiphy').fadeOut('slow');
-        searchMovie();
+        //First remove all classes then add class of col div so that it is col-md-6 instead of col-md-4
     }, 3000);
 
     timer;
+}
 
-});
+function omdbAJAX() {
 
-function searchMovie() {
-    //getting movie name from field
-    movie = $('#movieName').val();
-
+    var movie = $(".form-control").val();
+    console.log(movie);
     var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function(response) {
-        //$("#omdb").text(JSON.stringify(response, null, 2));
-        var result = response;
-        console.log(result);
-        var movieDetail = "<row>"
-        +"<div class='col-md-5'>"
-        +"<div class='thumbnail'>"
-        +"<h3>" + result.Title + " ("+ result.Year +")" + "</h3>"
-        
-        +"<img src='"+result.Poster+"'>"
+        console.log(response);
+        console.log(response.Actors);
+        // $("#omdb").text(JSON.stringify(response, null, 2));
 
-        +"<p>"
-        +"<div>"
-        +result.Plot
-        +"</div>"
-        "</p>"
-        +"</div>"
-        +"</div>"
-        +"</row>";
-
-        $("#omdb").append(movieDetail);
-
+        var poster_src = response.Poster
+        $("#movieInfo").html("<img src=" + response.Poster + " >");
+        $("#moviePlot").html(JSON.stringify(response.Plot, null, 2));
+        $("#moviePlot").css("color", "darkblue");
+        $("#moviePlot").one("click", function() {
+            var fontSize = $(this).css("font-size", "+=15");
+        });
     });
     return;
 
 }
+
+function youtubeData() {
+    var searchURL = "https://www.youtube.com/embed?listType=search&list=";
+    var movieSearch = $(".form-control").val() + "+trailer";
+    var targetURL = searchURL + movieSearch;
+    console.log(movieSearch);
+    console.log(targetURL);
+    $("#youtube").append("<iframe id='trailer' width='640' height='360'></iframe");
+    $("#trailer").attr("src", targetURL);
+
+    return false;
+}
+
+function emptyDiv() {
+    $("#movieInfo").empty();
+    $("#moviePlot").empty();
+    $("#youtube").empty();
+}
+
+
+$(".form-control").keypress(function(e) {
+    if (e.which == 13) {
+
+        emptyDiv();
+
+        gifAJAX();
+
+        setTimeout(function() {
+            omdbAJAX();
+        }, 4000);
+
+        setTimeout(function() {
+            youtubeData();
+        }, 4000);
+
+    }
+});
+
+$("#Search").on("click", function() {
+
+    emptyDiv();
+
+    gifAJAX();
+
+    setTimeout(function() {
+        omdbAJAX();
+    }, 4000);
+
+    setTimeout(function() {
+        youtubeData();
+    }, 4000);
+
+});

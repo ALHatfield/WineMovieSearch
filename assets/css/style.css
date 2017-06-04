@@ -1,20 +1,40 @@
 
+body {
+	background-color: #292F33;/**#66757F; /**#221F1F/** #292F33;**/
+
+}
+
+
+
 .search-form {
-	padding: 10%;
+	padding: 5px 0 0 0;
+	vertical-align: top;
 }
-.search-form{
-	padding-top: 3px;
-}
-=======
 .container {
 	padding: 5%;
 }
-
 .search-btn {
 	margin-top: 3px;
 }
-
-.jumbotron{
-	background-image: url("assets/images/WineAndCork2.png");
+.title {
+	text-align: center;
+	font-weight: bold;
 }
 
+#wineGiphy {
+        padding-top: 20px;
+}
+
+#movieInfo {
+        padding-top: 20px;
+}
+
+
+#moviePlot {
+        padding-top: 10px;
+        width: 45%;
+}
+
+#youtube {
+        padding-top: 40px;
+}
