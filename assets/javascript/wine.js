@@ -72,7 +72,6 @@
         }).done(function(response) {
             console.log(response);
             console.log(response.Actors);
-            // $("#omdb").text(JSON.stringify(response, null, 2));
 
             var poster_src = response.Poster
             $("#movieInfo").html("<img src=" + response.Poster + " >");
