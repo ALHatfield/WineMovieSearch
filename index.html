@@ -14,35 +14,36 @@
     <div id="background">
         <img src="assets/images/WineAndCork2.png" height="50%" width="100%">
     </div>
-        <div class="container text-center">
-            <header>
-                <div class="searchBar">
+    <div class="container text-center">
+        <header>
+            <div class="searchBar">
+                <form>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie" spellcheck="true">
+                        <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie" spellcheck="true" required />
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit" id="Search">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
                     </div>
+                </form>
+            </div>
+        </header>
+        <section>
+            <div class="row">
+                <div id="wineGiphy"></div>
+                <div id="row">
+                <div class="col-md-6" id="movieInfo"></div>
+                <div class="col-md-6" id="youtube"></div>
                 </div>
-            </header>
-            <section>
-                <div class="row">
-                    <div id="wineGiphy"></div>
-                    <div class="col-md-6" id="movieInfo"></div>
-                    <div class="col-md-6" id="youtube">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6" id="moviePlot"></div>
-                </div>
-            </section>
-        </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/javascript/wine.js"></script>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="moviePlot"></div>
+            </div>
+        </section>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/wine.js"></script>
 </body>
 
 </html>
