@@ -69,7 +69,7 @@
         timer = setTimeout(function() {
             $('#wineGiphy').fadeOut('slow');
             //First remove all classes then add class of col div so that it is col-md-6 instead of col-md-4
-        }, 3000);
+        }, 6000);
 
         timer;
     }
@@ -160,11 +160,11 @@
 
             setTimeout(function() {
                 omdbAJAX();
-            }, 4000);
+            }, 6500);
 
             setTimeout(function() {
                 youtubeData();
-            }, 4000);
+            }, 6500);
 
         }
     });
@@ -178,10 +178,10 @@
 
         setTimeout(function() {
             omdbAJAX();
-        }, 4000);
+        }, 6500);
 
         setTimeout(function() {
             youtubeData();
-        }, 4000);
+        }, 6500);
 
     });
