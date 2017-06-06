@@ -66,10 +66,10 @@
     function omdbAJAX() {
 
         var movie = $(".form-control").val();
-        if (movie === "") {
-            alert("Insert a movie first!");
+        // if (movie === "") {
+        //     alert("Insert a movie first!");
         
-        }
+        // }
         console.log(movie);
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
 
@@ -81,10 +81,15 @@
             console.log(response.Actors);
 
             var poster_src = response.Poster
+
+            if (response.Year == undefined) {
+                return false;
+            }
+            else {
             $("#movieInfo").html("<img class='img-responsive' src='" + response.Poster + "' >");
             $("#moviePlot").html("<p class='moviePlotText'> " + JSON.stringify(response.Plot, null, 2) + "</p>");
             $("#moviePlot").css("color", "darkblue");
-
+            }
 
             // $("#moviePlot").on("click", function() {
             //     var fontSize = $(this).css("font-size", "+=15");
@@ -144,22 +149,31 @@
         $(".form-control").keypress(function(e) {
             if (e.which == 13) {
 
-            emptyDiv();
+                emptyDiv();
 
-            gifAJAX();
+                if ($(".form-control").val() == "") {
+                    return;
+                    e.preventDefault();
+                }
+                gifAJAX();
 
-            setTimeout(function() {
+                setTimeout(function() {
                     omdbAJAX();
-            },4000);
+                },4000);
 
-            setTimeout(function() {
+                setTimeout(function() {
                     youtubeData();
-            },4000);
+                },4000);
 
             }
         });
 
         $("#Search").on("click", function() {
+
+            if ($(".form-control").val() == "") {
+                return;
+                e.preventDefault();
+            }
 
             emptyDiv();
 
