@@ -1,9 +1,38 @@
 
+/*Media Queries*/
 
-#background {
-	
+
+@media only screen and (min-width: 992px) {
+	.moviePlotText {
+		margin-top: 50%;
+		margin-bottom: 50%;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.moviePlotText {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#movieInfo {
+		margin-left: 25%;
+		/*margin-right: 50%;*/
+	}
 }
 
+/*END OF MEDIA QUERIES*/
+
+
+
+#youtube {
+	/*margin: 20px;*/
+}
+
+.movieInfoSection {
+	padding: 30px;
+	background-color: Lavender;
+	margin-top: 20px;
+	/*width: 100%;*/
+}
 
 
 .search-form {

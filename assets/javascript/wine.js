@@ -23,7 +23,10 @@
     function gifAJAX() {
         
                console.log($(".form-control").val()); 
-
+                    if($(".form-control").val() === "") {
+                        console.log("Insert a movie first!");
+                    
+                    }
             //Resets the previous timer
                 if (timer) {
                     clearTimeout(timer); 
@@ -63,6 +66,10 @@
     function omdbAJAX() {
 
         var movie = $(".form-control").val();
+        if (movie === "") {
+            alert("Insert a movie first!");
+        
+        }
         console.log(movie);
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
 
@@ -74,12 +81,16 @@
             console.log(response.Actors);
 
             var poster_src = response.Poster
-            $("#movieInfo").html("<img src=" + response.Poster + " >");
-            $("#moviePlot").html(JSON.stringify(response.Plot, null, 2));
+            $("#movieInfo").html("<img class='img-responsive' src='" + response.Poster + "' >");
+            $("#moviePlot").html("<p class='moviePlotText'> " + JSON.stringify(response.Plot, null, 2) + "</p>");
             $("#moviePlot").css("color", "darkblue");
-            $("#moviePlot").one("click", function() {
-                var fontSize = $(this).css("font-size", "+=15");
-            });
+            // $("#moviePlot").css("padding", "20px");
+            // $("#moviePlot").css("margin-top", "20px");
+            // $("#moviePlot").css("vertical-align", "middle");
+
+            // $("#moviePlot").on("click", function() {
+            //     var fontSize = $(this).css("font-size", "+=15");
+            // });
         });
         return;
 
@@ -90,6 +101,10 @@
         //disambiguation by year of release is defined with another ajax call to omdb, followed by extraction of year of release
         var movie = $(".form-control").val();
         console.log(movie);
+           if (movie === "") {
+            alert("Insert a movie first!");
+        
+        }
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
 
         $.ajax({
@@ -113,7 +128,7 @@
                 return false;
             }
             else {
-                $("#youtube").append("<iframe id='trailer' width='640' height='360'></iframe");
+                $("#youtube").append("<iframe class='embed-responsive-item' id='trailer'></iframe");
                 $("#trailer").attr("src", targetURL);
             }
 
