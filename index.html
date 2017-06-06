@@ -17,23 +17,24 @@
     <div class="container text-center">
         <header>
             <div class="searchBar">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit" id="Search">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
+                <form>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="This is your night ... you get to pick the movie" spellcheck="true" required />
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" id="Search">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-            <!--The closing div tag below was removed because it interferes with the centering of the gif-->
-            <!--</div>-->
         </header>
         <section>
             <div class="row">
                 <div id="wineGiphy"></div>
+                <div id="row">
                 <div class="col-md-6" id="movieInfo"></div>
-                <div class="col-md-6" id="youtube">
+                <div class="col-md-6" id="youtube"></div>
                 </div>
             </div>
             <div class="row">

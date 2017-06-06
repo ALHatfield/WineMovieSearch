@@ -8,6 +8,8 @@ var jokes = [
 ]
 
 var timer = null;
+var releaseYear = "";
+var movieSearch = "";
 
 //functions to define
 
@@ -70,10 +72,9 @@ function omdbAJAX() {
     }).done(function(response) {
         console.log(response);
         console.log(response.Actors);
-        // $("#omdb").text(JSON.stringify(response, null, 2));
 
         var poster_src = response.Poster
-        $("#movieInfo").html("<img src=" + response.Poster + " >");
+        $("#movieInfo").html("<img src='" + response.Poster + "' height=360 >");
         $("#moviePlot").html(JSON.stringify(response.Plot, null, 2));
         $("#moviePlot").css("color", "darkblue");
         $("#moviePlot").one("click", function() {
@@ -84,16 +85,38 @@ function omdbAJAX() {
 
 }
 
-function youtubeData() {
-    var searchURL = "https://www.youtube.com/embed?listType=search&list=";
-    var movieSearch = $(".form-control").val() + "+trailer";
-    var targetURL = searchURL + movieSearch;
-    console.log(movieSearch);
-    console.log(targetURL);
-    $("#youtube").append("<iframe id='trailer' width='640' height='360'></iframe");
-    $("#trailer").attr("src", targetURL);
 
-    return false;
+function youtubeData() {
+    //disambiguation by year of release is defined with another ajax call to omdb, followed by extraction of year of release
+    var movie = $(".form-control").val();
+    console.log(movie);
+    var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(response) {
+        console.log(response);
+        console.log(response.Actors);
+        releaseYear = response.Year;
+
+        var searchURL = "https://www.youtube.com/embed?listType=search&list=";
+        movieSearch = $(".form-control").val() + "+" + releaseYear + "+trailer";
+        var targetURL = searchURL + movieSearch;
+        console.log(movieSearch);
+        console.log(targetURL);
+        //Code below prevents youtube trailer from displaying if there is no user input or if user decides to type in gibberish
+        if (releaseYear == undefined) {
+            return false;
+        } else if (movieSearch == "+trailer") {
+            return false;
+        } else {
+            $("#youtube").append("<iframe id='trailer' width='640' height='360'></iframe");
+            $("#trailer").attr("src", targetURL);
+        }
+
+    });
+
 }
 
 function emptyDiv() {
@@ -105,8 +128,11 @@ function emptyDiv() {
 
 $(".form-control").keypress(function(e) {
     if (e.which == 13) {
-
         emptyDiv();
+
+        if($(".form-control").val() == "")
+            return;
+        e.preventDefault();
 
         gifAJAX();
 
@@ -121,9 +147,14 @@ $(".form-control").keypress(function(e) {
     }
 });
 
-$("#Search").on("click", function() {
+$("#Search").on("click", function(e) {
+     emptyDiv();
 
-    emptyDiv();
+     if($(".form-control").val() == "")
+        return;
+
+    e.preventDefault();
+    
 
     gifAJAX();
 
