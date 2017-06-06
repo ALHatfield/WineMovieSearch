@@ -1,0 +1,69 @@
+
+/*Media Queries*/
+
+
+@media only screen and (min-width: 992px) {
+	.moviePlotText {
+		margin-top: 50%;
+		margin-bottom: 50%;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.moviePlotText {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#movieInfo {
+		margin-left: 25%;
+		/*margin-right: 50%;*/
+	}
+}
+
+/*END OF MEDIA QUERIES*/
+
+
+
+#youtube {
+	/*margin: 20px;*/
+}
+
+.movieInfoSection {
+	padding: 30px;
+	background-color: Lavender;
+	margin-top: 20px;
+	/*width: 100%;*/
+}
+
+
+.search-form {
+	padding: 5px 0 0 0;
+	vertical-align: top;
+}
+.container {
+	padding: 5%;
+}
+.search-btn {
+	margin-top: 3px;
+}
+.title {
+	text-align: center;
+	font-weight: bold;
+}
+
+#wineGiphy {
+        padding-top: 20px;
+}
+
+#movieInfo {
+        padding-top: 20px;
+}
+
+
+#moviePlot {
+        padding-top: 10px;
+        width: 45%;
+}
+
+#youtube {
+        padding-top: 40px;
+}
