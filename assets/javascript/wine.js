@@ -84,9 +84,7 @@
             $("#movieInfo").html("<img class='img-responsive' src='" + response.Poster + "' >");
             $("#moviePlot").html("<p class='moviePlotText'> " + JSON.stringify(response.Plot, null, 2) + "</p>");
             $("#moviePlot").css("color", "darkblue");
-            // $("#moviePlot").css("padding", "20px");
-            // $("#moviePlot").css("margin-top", "20px");
-            // $("#moviePlot").css("vertical-align", "middle");
+
 
             // $("#moviePlot").on("click", function() {
             //     var fontSize = $(this).css("font-size", "+=15");
