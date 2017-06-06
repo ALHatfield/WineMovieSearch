@@ -31,43 +31,45 @@
 </section>
 
 <!-- About the Website CONTENT -->
-<section class="scrolling-content">
+<section class="scrolling-content-aboutWebsite">
 	<!-- Home Glyph -->
 	<div class="row">
 		<span class="glyphicon glyphicon-home"></span>
 	</div>
 	<!-- About Content -->
 	<div class="row">
-		<div class="content
+		<div class="content nowrap
 					col-sm-8 col-sm-offset-2
 					col-md-8 col-md-offset-2
 					col-lg-6 col-lg-offset-3">
-			<p>About our website</p>
+			<h3>About our website</h3>
+			<hr>
 			<p>It is a simple search engine that supplies movie information</p>
 			<p>The purpose of the website is to provide cheap entertainment as well as useful movie information</p>
 			<p>We used 3 APIs to deliver content to entertain the user</p>
-
+			<hr>
+			<h3>Application Program Interfaces</h3>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="content
-					col-sm-2 col-sm-offset-1
-					col-md-2 col-md-offset-1
-					col-lg-3 col-lg-offset-1">
-			<img src="assets/images/youtube.svg" height="100px">
+
+					col-sm-4 col-sm-offset-0">
+			<img class="apiLogo" src="assets/images/youtube.svg" height="100px">
+			<h4>Youtube</h4>
 		</div>
 		<div class="content
-					col-sm-2 col-sm-offset-1
-					col-md-2 col-md-offset-1
-					col-lg-3 col-lg-offset-1">
-			<img src="assets/images/IMDB.png" height="100px">
+					
+					col-sm-4 col-sm-offset-0">
+			<img class="apiLogo" src="assets/images/IMDB.png" height="100px">
+			<h4>Internet Movie Database</h4>
 		</div>
 		<div class="content
-					col-sm-2 col-sm-offset-3
-					col-md-2 col-md-offset-3
-					col-lg-3 col-lg-offset-3">
-			<img src="assets/images/api_giphy_logo.png" height="100px">
+					
+					col-sm-4 col-sm-offset-0">
+			<img class="apiLogo" src="assets/images/api_giphy_logo.png" height="100px">
+			<h4>Giphy</h4>
 		</div>
 	</div>	
 </section>
@@ -96,8 +98,18 @@
 		<div class="row">
 			<span class="glyphicon glyphicon-wrench"></span>
 		</div>
-		<div class="row content">	
-		<p>Finding proper design layout to display the header, section and footer for webiste and also putting the content in proper place is one of key challange faced during development.</p>
+		<div class="row content nowrap">	
+		<h3>Challenges</h3>
+		<hr>
+		<p>Finding proper design layout to display the header, section and footer for webiste and also putting the content in proper place.</p>
+
+		<p>Learning the parallax style with bootstrap to have our presentation with you</p>
+
+		<p>Making a simple search bar that inluded all the class and ID's necessary for back-end</p>
+
+		<p>Designing the layout placement for the APIs</p>
+
+		<p>Placement of the background title so that it doesn't get in the way of the functionality of the site</p>
 		</div>
 	</div>
 	<div class="content
@@ -107,8 +119,18 @@
 		<div class="row">
 			<span class="glyphicon glyphicon-inbox"></span>
 		</div>
-		<div class="row content">
+		<div class="row content nowrap">
+			<h3>Tasks</h3>
+			<hr>
 			<p>Use bootstrap frontend css framework and create our own style to display the content on website when backend returns the data.</p>
+
+			<p>Discovered more elements such as within bootstrap to handle parallax and implimenting it for each section of the presentation</p>
+
+			<p>Researched ideas and templates for the search bar and learned about specific classes that reference what the user types in</p>
+
+			<p>Used GIMP editor manage the backgrounds and provide fixed text to the background</p>
+
+			<p>Managing the website elements using Media queries so that it is functionable on all screen sizes including large projectors and mobile phones</p>
 		</div>
 	</div>
 </section>
@@ -138,7 +160,7 @@
 			<span class="glyphicon glyphicon-fire"></span>
 		</div>
 		<!-- Back End Challenges - What problems did you have during the project etc... -->
-		<div class="row content">
+		<div class="row content nowrap">
 			<p>Timing of API calls, so that all content would display in an ordered fashion, as opposed to all at once.</p>
             <p>Ensuring that the input form can still load new content after the initial call. The form needs to reinitiate API calls should the user decided to search another movie.</p>
             <p>Accounting for edge cases, specifically when dealing with YouTube, as it should not load a video if there is no match for a movie.</p>
@@ -154,7 +176,7 @@
 		</div>
 		
 		<!-- Back End Tasks - How did you solve the problems at hand etc... -->
-		<div class="row content">
+		<div class="row content nowrap">
 			<p>Deciding the APIs (giphy, omdb, youtube) that would ultimately be used to bring content to the webpage.</p>
             <p>Writing the code that takes in input from a user, does an API call, and returns the requested information on the webpage.</p>
             <p>Writing the code that takes in input from a user, does an API call, and returns the requested information on the webpage.</p>
@@ -187,6 +209,127 @@
 
 <style type="text/css">
 
+@media only screen and (max-width: 569px) {
+	.scrolling-content-aboutWebsite {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    /*background: #ffffff;*/
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.scrolling-content {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.nowrap {
+		white-space: nowrap;
+		text-align: center;
+	}
+	.apiLogo {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+}
+
+
+@media only screen and (max-width: 767px) and (min-width: 570px) {
+	.scrolling-content-aboutWebsite {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    /*background: #ffffff;*/
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.scrolling-content {
+    position: relative;
+    width: 100%;
+    height: 1100px;
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.apiLogo {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+}
+@media only screen and (max-width: 940px) and (min-width: 768px) {
+	.scrolling-content-aboutWebsite {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    /*background: #ffffff;*/
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.scrolling-content {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    /*background: #ffffff;*/
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.apiLogo {
+	margin-bottom: 20px
+}
+}
+@media only screen and (min-width: 939px) {
+	.scrolling-content-aboutWebsite {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    /*background: #ffffff;*/
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.scrolling-content {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    /*background: #ffffff;*/
+    z-index: 2;
+    text-align: center;
+    background-color: Lavender;
+    padding: 50px;
+	}
+	.apiLogo {
+	margin-bottom: 20px;
+}
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+p {
+	font-size: 16px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 .glyphicon {
 	font-size: 100px;
 }
@@ -215,7 +358,6 @@
     top: 300px;
     text-align: center;
     color: white;
-    
 }
 #parallax-1 {
     background-image: url("assets/images/movie.png");
@@ -233,16 +375,7 @@
 	background-image: url("assets/images/website.png");
 	background-size: cover;
 }
-.scrolling-content {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    /*background: #ffffff;*/
-    z-index: 2;
-    text-align: center;
-    background-color: Lavender;
-    padding: 70px;
-}
+
 .scrolling-content-footer {
     position: relative;
     width: 100%;
