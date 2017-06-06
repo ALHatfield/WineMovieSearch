@@ -2,10 +2,19 @@
     //Ensure that the omdb api works and puts content on page    
 
     var jokes = [
-            "funny joke number 1", // 0
-            "funny joke number 2", // 1
-            "funny joke number 3", // 2
+            "Searching our wine racks ... sit tight", // 0
+            "OK hold on this may take a while", // 1
+            "Really? that movie? we probably don't have it", // 2
+            "No sorry we only have good movies",
+            "How about you get me more wine first",
+            "Whos idea was this that I have to do work",
+            "Didn't that movie flop?",
+            "This is what people watch nowadays? wow",
+            "Come back later I'm drinking wine",
+            "I have a better idea .. ",
+            "What is my purpose? (You pass butter) ... omg ..."
         ]
+
 
     var timer = null;
     var releaseYear = "";
@@ -21,55 +30,55 @@
 
 
     function gifAJAX() {
-        
-               console.log($(".form-control").val()); 
-                    if($(".form-control").val() === "") {
-                        console.log("Insert a movie first!");
-                    
-                    }
-            //Resets the previous timer
-                if (timer) {
-                    clearTimeout(timer); 
-                    timer = null;
-                }
 
-                var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=wine";
+        console.log($(".form-control").val());
+        if ($(".form-control").val() === "") {
+            console.log("Insert a movie first!");
 
-                $.ajax({
-                        url: queryURL,
-                        method: "GET"
-                    })
-                    .done(function(response) {
+        }
+        //Resets the previous timer
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
 
-                        console.log(queryURL);
+        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=wine";
 
-                        console.log(response);
-                        // storing the data from the AJAX request in the results variable
-                        var results = response.data;
-                        var displaygif = "<img src=" + results.image_url + ">"
-                    
-                        $("#wineGiphy").html(displaygif);
+        $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+            .done(function(response) {
 
-                        $('#wineGiphy').fadeIn('fast');
+                console.log(queryURL);
 
-                        newJoke();
-                    })
-                // fade out the gif
-                timer = setTimeout(function() {
-                    $('#wineGiphy').fadeOut('slow');
-                    //First remove all classes then add class of col div so that it is col-md-6 instead of col-md-4
-                }, 3000);
-                
-               timer; 
+                console.log(response);
+                // storing the data from the AJAX request in the results variable
+                var results = response.data;
+                var displaygif = "<img src=" + results.image_url + ">"
+
+                $("#wineGiphy").html(displaygif);
+
+                $('#wineGiphy').fadeIn('fast');
+
+                newJoke();
+            })
+            // fade out the gif
+        timer = setTimeout(function() {
+            $('#wineGiphy').fadeOut('slow');
+            //First remove all classes then add class of col div so that it is col-md-6 instead of col-md-4
+        }, 3000);
+
+        timer;
     }
 
     function omdbAJAX() {
 
         var movie = $(".form-control").val();
-        // if (movie === "") {
-        //     alert("Insert a movie first!");
-        
-        // }
+        if (movie === "") {
+            alert("Insert a movie first!");
+
+        }
         console.log(movie);
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
 
@@ -81,19 +90,15 @@
             console.log(response.Actors);
 
             var poster_src = response.Poster
-
-            if (response.Year == undefined) {
-                return false;
-            }
-            else {
             $("#movieInfo").html("<img class='img-responsive' src='" + response.Poster + "' >");
             $("#moviePlot").html("<p class='moviePlotText'> " + JSON.stringify(response.Plot, null, 2) + "</p>");
             $("#moviePlot").css("color", "darkblue");
-            }
 
-            // $("#moviePlot").on("click", function() {
-            //     var fontSize = $(this).css("font-size", "+=15");
-            // });
+            var fontSizes = [14, 16];
+            $('#moviePlot').click(function() {
+                $('#moviePlot').css('font-size', fontSizes[0] + 'pt');
+                fontSizes.reverse();
+            })
         });
         return;
 
@@ -104,9 +109,9 @@
         //disambiguation by year of release is defined with another ajax call to omdb, followed by extraction of year of release
         var movie = $(".form-control").val();
         console.log(movie);
-           if (movie === "") {
+        if (movie === "") {
             alert("Insert a movie first!");
-        
+
         }
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=40e9cece";
 
@@ -116,8 +121,8 @@
         }).done(function(response) {
             console.log(response);
             console.log(response.Actors);
-            releaseYear = response.Year; 
-            
+            releaseYear = response.Year;
+
             var searchURL = "https://www.youtube.com/embed?listType=search&list=";
             movieSearch = $(".form-control").val() + "+" + releaseYear + "+trailer";
             var targetURL = searchURL + movieSearch;
@@ -126,11 +131,9 @@
             //Code below prevents youtube trailer from displaying if there is no user input or if user decides to type in gibberish
             if (releaseYear == undefined) {
                 return false;
-            }
-            else if (movieSearch == "+trailer") {
+            } else if (movieSearch == "+trailer") {
                 return false;
-            }
-            else {
+            } else {
                 $("#youtube").append("<iframe class='embed-responsive-item' id='trailer'></iframe");
                 $("#trailer").attr("src", targetURL);
             }
@@ -140,53 +143,42 @@
     }
 
     function emptyDiv() {
-            $("#movieInfo").empty();
-            $("#moviePlot").empty();
-            $("#youtube").empty();
+        $("#movieInfo").empty();
+        $("#moviePlot").empty();
+        $("#youtube").empty();
     }
 
 
-        $(".form-control").keypress(function(e) {
-            if (e.which == 13) {
-
-                emptyDiv();
-
-                if ($(".form-control").val() == "") {
-                    return;
-                    e.preventDefault();
-                }
-                gifAJAX();
-
-                setTimeout(function() {
-                    omdbAJAX();
-                },4000);
-
-                setTimeout(function() {
-                    youtubeData();
-                },4000);
-
-            }
-        });
-
-        $("#Search").on("click", function() {
-
-            if ($(".form-control").val() == "") {
-                return;
-                e.preventDefault();
-            }
+    $(".form-control").keypress(function(e) {
+        if (e.which == 13) {
 
             emptyDiv();
 
             gifAJAX();
 
             setTimeout(function() {
-                    omdbAJAX();
-            },4000);
-            
+                omdbAJAX();
+            }, 4000);
+
             setTimeout(function() {
-                    youtubeData();
-            },4000);
+                youtubeData();
+            }, 4000);
 
-        });
+        }
+    });
 
-    
+    $("#Search").on("click", function() {
+
+        emptyDiv();
+
+        gifAJAX();
+
+        setTimeout(function() {
+            omdbAJAX();
+        }, 4000);
+
+        setTimeout(function() {
+            youtubeData();
+        }, 4000);
+
+    });
