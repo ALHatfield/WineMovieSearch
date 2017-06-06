@@ -1,6 +1,8 @@
     //To do: Change gif to fixed height size.
     //Ensure that the omdb api works and puts content on page    
-
+    $(document).ready(function() {
+        $("#toggleClass").removeClass("movieInfoSection");
+    })
     var jokes = [
             "Searching our wine racks ... sit tight", // 0
             "OK hold on this may take a while", // 1
@@ -73,7 +75,7 @@
     }
 
     function omdbAJAX() {
-
+         $("#toggleClass").addClass("movieInfoSection");
         var movie = $(".form-control").val();
         if (movie === "") {
             alert("Insert a movie first!");
@@ -168,6 +170,7 @@
     });
 
     $("#Search").on("click", function() {
+       
 
         emptyDiv();
 

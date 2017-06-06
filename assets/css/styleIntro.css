@@ -118,6 +118,7 @@ p {
 }
 
 hr {
+    color: black;
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
@@ -177,4 +178,12 @@ hr {
     text-align: center;
     background-color: Lavender;
     padding: 20px;
+}
+.websiteLinkText {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px;
+    background-color: #73AD21;
+    border-radius: 25px;
+    color: white;
 }
