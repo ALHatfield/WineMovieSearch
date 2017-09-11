@@ -4,10 +4,10 @@ Experience movies like nothing else...
 
 A simple search engine set up to supply movie information and cheap entertainment while you wait for your requested movie to show up. It uses the following APIs to deliver content to you:
 
-<center> <h2>Application Program Interfaces</h2> </center>
+<h2 align="center">Application Program Interfaces</h2>
 
 <div class="row">
-<h3>Youtube</h3>  <h3>Open Movie Database</h3>  <h3>Giphy</h3>
+<h3 style="width:33%">Youtube</h3>  <h3 style="width:33%">Open Movie Database</h3>  <h3 style="width:33%">Giphy</h3>
 </div>
 <img src="assets/images/youtube.svg" height="100px"/> <img src="assets/images/omdb.png" height="100px"/> <img src="assets/images/api_giphy_logo.png" height="100px"/>
 
